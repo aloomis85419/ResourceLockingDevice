@@ -1,6 +1,5 @@
-/** 
+/**
 *  Resource-locking device with circular storage.
-*
 *  @author API: Dr. Jody Paul
 *  @author Implementation: Aaron L, Joe M, Vicky L, Erin G, Jaziel P
 *  @version API: 1.2.4 Implementation: 1.0

@@ -1,11 +1,11 @@
 /**
  * Provides for unlocking resource-control devices.
- *
  * @author Dr. Jody Paul
  * @version 1.1.4
  * @see <a href="../projectDescription.html">Project Description</a>
  */
 public abstract class DeviceUnlocker {
+
     /**
      * Unlocks a device-controlled resource.
      * @param dev the device controlling the resource to unlock
