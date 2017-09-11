@@ -7,7 +7,7 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
 
     @Test
     public void testUnlock() {
-        assert ()
+
     }
 
     @Test
