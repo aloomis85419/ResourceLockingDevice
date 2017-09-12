@@ -46,12 +46,16 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         assertThat(testUnlocker.unlock(), is(false));
     }
 
+<<<<<<< HEAD
+
+=======
    // Test case 1.5.1.1
     @Test
     public void testTooManyDeviceBits() {
         Device testDevice = new Device ([true, true, true, true, true, true, true, true, true, true], DISCLOSURE_BITS);
         FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
         assertThat(testUnlocker.unlock(), is(false));
+>>>>>>> 2dad9be564044dd53922f020d0cc54fb662a66d1
     }
     
    // Test case 1.5.1.2
