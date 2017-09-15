@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Created-By: 1.8.0_121 (Oracle Corporation)
 
+=======
+Manifest-Version: 1.0
+Created-By: 1.8.0_121 (Oracle Corporation)
+
+>>>>>>> 068f60ecbc9f19ab3d49a1c601a4042fb1dc4f18
