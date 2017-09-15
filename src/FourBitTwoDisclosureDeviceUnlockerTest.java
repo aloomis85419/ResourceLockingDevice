@@ -28,10 +28,7 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         bitArray[3] = true;
         Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
         FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
-<<<<<<< HEAD
         testUnlocker.unlock(testDevice);
-=======
->>>>>>> 036746ba56db759f0d965e2ffa5de32595b04715
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
 
@@ -44,12 +41,8 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         bitArray[3] = false;
     	Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
 	    FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
-<<<<<<< HEAD
         testUnlocker.unlock(testDevice);
 	    assertThat(testUnlocker.unlock(testDevice), is(true));
-=======
-	    assertThat(testUnlocker.unlock(testDevice), is(false));
->>>>>>> 036746ba56db759f0d965e2ffa5de32595b04715
    }
     
    // Test case 1.3
@@ -61,12 +54,8 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         bitArray[3] = false;
         Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
         FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
-<<<<<<< HEAD
         testUnlocker.unlock(testDevice);
         assertThat(testUnlocker.unlock(testDevice), is(true));
-=======
-        assertThat(testUnlocker.unlock(testDevice), is(false));
->>>>>>> 036746ba56db759f0d965e2ffa5de32595b04715
     }
 
    // Test case 1.4
@@ -78,12 +67,8 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         bitArray[3] = false;
         Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
         FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
-<<<<<<< HEAD
         testUnlocker.unlock(testDevice);
         assertThat(testUnlocker.unlock(testDevice), is(true));
-=======
-        assertThat(testUnlocker.unlock(testDevice), is(false));
->>>>>>> 036746ba56db759f0d965e2ffa5de32595b04715
     }
 
 // <<<<<<< HEAD
@@ -111,10 +96,7 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         bitArray[1] = true;
         Device testDevice = new Device (bitArray, DISCLOSURE_BITS);
         FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
-<<<<<<< HEAD
         testUnlocker.unlock(testDevice);
-=======
->>>>>>> 036746ba56db759f0d965e2ffa5de32595b04715
         assertThat(testUnlocker.unlock(testDevice), is(false));
    }
 }
