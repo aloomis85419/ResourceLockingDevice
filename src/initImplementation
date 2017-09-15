@@ -1,0 +1,39 @@
+private char unlockValue = 'T';
+private int spinCount = 0;
+
+private boolean init(final Device initDevice)
+{
+	boolean unlockStatus = initDevice.spin();
+	spinCount++;
+ 	log("spin(): spinCount = " + spinCount);
+	
+	if(unlockStatus == true)
+	{
+		return true;
+	}
+	else
+	{
+		String initialPattern = initDevice.peek("??--");
+		log("peek(): [??--].");
+		
+		if(initialPattern.equals("FF--")
+		{
+			toggleUnlockValue();
+			pokePattern = "FF--";
+		}
+
+		return false;
+	}	
+}
+
+private void toggleUnlockValue()
+{
+	if(unlockValue == 'T')
+	{
+		unlockValue = 'F';
+	}
+	else if(unlockValue == 'F')
+	{
+		unlockValue = 'T';
+	}
+}

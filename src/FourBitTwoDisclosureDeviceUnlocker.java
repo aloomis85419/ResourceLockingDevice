@@ -66,4 +66,12 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker
             unlockValue = 'T';
         }
     }
+
+    public static void main(String[]args)
+    {
+
+       unlock(new Device(4,2));
+
+
+    }
 }
