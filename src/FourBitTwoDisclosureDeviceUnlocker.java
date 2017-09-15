@@ -3,9 +3,9 @@
  */
 public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker
 {
-    static private final int MAX_SPIN_COUNT = 10000;
-    static private final String PATTERN = "??--";
-    static private String pokePattern = "TT--";
+    private static final int MAX_SPIN_COUNT = 10000;
+    private static final String PATTERN = "??--";
+    private static String pokePattern = "TT--";
     private static char unlockValue = 'T';
     private static int spinCount = 0;
 
@@ -29,7 +29,7 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker
                     // (peekResults.charAt(0) == peekResults.charAt(1)) : First two chars are equal
                     // (peekResults.charAt(0) == unlockValue): First char equals unlockValue
                     if ((peekResults.charAt(0) == peekResults.charAt(1)) && (peekResults.charAt(0) == unlockValue)) {
-                        break; // Don't do anything.
+                        ; // Don't do anything.
                     } else {
                         dev.poke(pokePattern);
                         log("poke(): " + pokePattern);
