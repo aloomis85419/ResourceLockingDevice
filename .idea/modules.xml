@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ResourceLockingDevice.iml" filepath="$PROJECT_DIR$/.idea/ResourceLockingDevice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ResourceLockingDevice.iml" filepath="$PROJECT_DIR$/ResourceLockingDevice.iml" />
     </modules>
   </component>
 </project>
