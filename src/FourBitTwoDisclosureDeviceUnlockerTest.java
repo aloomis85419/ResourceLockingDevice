@@ -18,85 +18,189 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
 
    private final int DISCLOSURE_BITS = 2;
    private boolean[] bitArray = new boolean[4];
+   private String traceValue = "";
     
-   // Test case 1.1
+   // Test case 1.1.1
     @Test
-    public void testUnlockedDevice() {
+    public void testUnlockedDevice1111() {
         bitArray[0] = true;
         bitArray[1] = true;
         bitArray[2] = true;
         bitArray[3] = true;
+        System.out.println("Test Case 1.1.1 ");
         Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
         FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
-        testUnlocker.unlock(testDevice);
+        // testUnlocker.unlock(testDevice);
+        assertThat(testUnlocker.unlock(testDevice), is(true));
+    }
+    
+    // Test case 1.1.2
+    @Test
+    public void testUnlockedDevice1121() {
+        bitArray[0] = false;
+        bitArray[1] = false;
+        bitArray[2] = false;
+        bitArray[3] = false;
+        System.out.println("Test Case 1.1.2 ");
+        Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
+        FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
+        // testUnlocker.unlock(testDevice);
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
 
-   // Test case 1.2
+   // Test case 1.2.1.1
     @Test
-    public void testAllButOneUnlocked() {
+    public void testAllButOneUnlocked1211() {
         bitArray[0] = true;
         bitArray[1] = true;
         bitArray[2] = true;
         bitArray[3] = false;
+        System.out.println("Test Case 1.2.1.1 ");
     	Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
 	    FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
-        testUnlocker.unlock(testDevice);
+        // testUnlocker.unlock(testDevice);
 	    assertThat(testUnlocker.unlock(testDevice), is(true));
    }
     
-   // Test case 1.3
+    // Test case 1.2.1.2
     @Test
-    public void testTwoTrueTwoFalse() {
+    public void testAllButOneUnlocked1212() {
         bitArray[0] = true;
         bitArray[1] = true;
         bitArray[2] = false;
-        bitArray[3] = false;
+        bitArray[3] = true;
+        System.out.println("Test Case 1.2.1.2 ");
         Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
         FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
-        testUnlocker.unlock(testDevice);
+        // testUnlocker.unlock(testDevice);
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
-
-   // Test case 1.4
+    
+    // Test case 1.2.1.3
     @Test
-    public void testAlternatingBits() {
+    public void testAllButOneUnlocked1213() {
+        bitArray[0] = true;
+        bitArray[1] = false;
+        bitArray[2] = true;
+        bitArray[3] = true;
+        System.out.println("Test Case 1.2.1.3 ");
+        Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
+        FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
+        // testUnlocker.unlock(testDevice);
+        assertThat(testUnlocker.unlock(testDevice), is(true));
+    }
+    
+    // Test case 1.2.1.4
+    @Test
+    public void testAllButOneUnlocked1214() {
+        bitArray[0] = false;
+        bitArray[1] = true;
+        bitArray[2] = true;
+        bitArray[3] = true;
+        System.out.println("Test Case 1.2.1.4 ");
+        Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
+        FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
+        // testUnlocker.unlock(testDevice);
+        assertThat(testUnlocker.unlock(testDevice), is(true));
+    }
+    
+    // Test case 1.3.1.1
+    @Test
+    public void testAlternatingBits1311() {
         bitArray[0] = true;
         bitArray[1] = false;
         bitArray[2] = true;
         bitArray[3] = false;
+        System.out.println("Test Case 1.3.1.1 ");
         Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
         FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
-        testUnlocker.unlock(testDevice);
+        // testUnlocker.unlock(testDevice);
+        assertThat(testUnlocker.unlock(testDevice), is(true));
+    }
+    
+    // Test case 1.3.1.2
+    @Test
+    public void testAlternatingBits1312() {
+        bitArray[0] = false;
+        bitArray[1] = true;
+        bitArray[2] = false;
+        bitArray[3] = true;
+        System.out.println("Test Case 1.3.1.2 ");
+        Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
+        FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
+        // testUnlocker.unlock(testDevice);
+        assertThat(testUnlocker.unlock(testDevice), is(true));
+    }
+    
+    // Test case 1.3.2.1
+    @Test
+    public void testAlternatingBits1321() {
+        bitArray[0] = true;
+        bitArray[1] = false;
+        bitArray[2] = false;
+        bitArray[3] = true;
+        System.out.println("Test Case 1.3.2.1 ");
+        Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
+        FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
+        // testUnlocker.unlock(testDevice);
+        assertThat(testUnlocker.unlock(testDevice), is(true));
+    }
+    
+    // Test case 1.3.2.2
+    @Test
+    public void testAlternatingBits1322() {
+        bitArray[0] = false;
+        bitArray[1] = true;
+        bitArray[2] = true;
+        bitArray[3] = false;
+        System.out.println("Test Case 1.3.2.2 ");
+        Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
+        FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
+        // testUnlocker.unlock(testDevice);
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
 
-// <<<<<<< HEAD
-
-// =======
-   // Test case 1.5.1.1
-    // @Test
-    // public void testTooManyDeviceBits() {
-    //    bitArray[0] = true;
-    //    bitArray[1] = true;
-    //    bitArray[2] = true;
-    //    bitArray[3] = false;
-    /*    Device testDevice = new Device ([true, true, true, true, true, true, true, true, true, true], DISCLOSURE_BITS);
-        FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
-        assertThat(testUnlocker.unlock(testDevice), is(false));
-// >>>>>>> 2dad9be564044dd53922f020d0cc54fb662a66d1
-
-    }
-         */
     
-   // Test case 1.5.1.2
+   // Test case 1.3.3.1
     @Test
-    public void testTooFewDeviceBits() {
+    public void testTwoTrueTwoFalse1331() {
         bitArray[0] = true;
         bitArray[1] = true;
-        Device testDevice = new Device (bitArray, DISCLOSURE_BITS);
+        bitArray[2] = false;
+        bitArray[3] = false;
+        System.out.println("Test Case 1.3.3.1 ");
+        Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
         FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
-        testUnlocker.unlock(testDevice);
-        assertThat(testUnlocker.unlock(testDevice), is(false));
-   }
+        // testUnlocker.unlock(testDevice);
+        assertThat(testUnlocker.unlock(testDevice), is(true));
+    }
+    
+    // Test case 1.3.3.2
+    @Test
+    public void testTwoTrueTwoFalse1332() {
+        bitArray[0] = false;
+        bitArray[1] = false;
+        bitArray[2] = true;
+        bitArray[3] = true;
+        System.out.println("Test Case 1.3.3.2 ");
+        Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
+        FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
+        // testUnlocker.unlock(testDevice);
+        assertThat(testUnlocker.unlock(testDevice), is(true));
+    }
+    
+    // Test case 1.4 - Testing when Spin Count Maximum is reached
+    @Test
+    public void testTwoTrueTwoFalse14() {
+        bitArray[0] = false;
+        bitArray[1] = true;
+        bitArray[2] = false;
+        bitArray[3] = true;
+        System.out.println("Test Case 1.4 ");
+        Device testDevice = new Device(bitArray, DISCLOSURE_BITS);
+        FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
+        // testUnlocker.unlock(testDevice);
+        assertThat(testUnlocker.unlock(testDevice), is(true));
+    }
+
 }
