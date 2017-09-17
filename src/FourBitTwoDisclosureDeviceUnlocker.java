@@ -29,6 +29,9 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker
 
 	/** String to catch return of showTrace method */
     private static String traceValue = "";
+    
+    /** Indication of whether the device has been unlocked. */
+    private static boolean unlocked = false;
 
     /**
      * Unlocks a resource controlled by a 4-bit/2-disclosure device. Behavior is unspecified if parameter is
@@ -38,7 +41,7 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker
      */
     public static boolean unlock(Device dev)
     {
-        boolean unlocked = init(dev);
+        unlocked = init(dev);
 
         if (!unlocked) {
             while ((spinCount < MAX_SPIN_COUNT) && (!unlocked)) {
@@ -60,18 +63,8 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker
                 }
             }
         }
-        if (spinCount >= MAX_SPIN_COUNT) {
-            log("Maximum number of Spins reached, " + spinCount);
-            log("Program has halted without an unlocked Device, " + unlocked);
-        } else {
-            log("Device is Unlocked.");
-        }
-        traceValue = showTrace();
-        System.out.println("Trace Value is: ");
-        System.out.println(traceValue);
-        traceValue = "";
-        spinCount = 0;
-        log(null);
+        checkSpinCount();
+        retrieveAndDisplayTrace();
         return unlocked;
     }
 
@@ -102,4 +95,37 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker
         }
         return unlockStatus;
     }
+    /**
+     * Helper method to check if we reached the maximum number
+     * of spins allowed to be able to unlock the device.  If we
+     * did reach the maximum number of spins then a message will
+     * be added to the log message to indicate this occurrence.
+     * Method modifies poke pattern based on results of first peek.
+     */
+    private static void checkSpinCount() {
+        if (spinCount >= MAX_SPIN_COUNT) {
+            log("Maximum number of Spins reached, " + spinCount);
+            log("Program has halted without an unlocked Device, " + unlocked);
+        } else {
+            log("Device is Unlocked.");
+        }
+    }
+    
+    /**
+     * Helper method to retrieve the complete log of the process
+     * steps, spin, peek, and pokes to have all the bits either
+     * be all T's or all F's to unlock the device.  Once this log
+     * is retrieved, it will be displayed on the screen.  This
+     * device attribute for trace is then reset or cleared.  The
+     * spinCount attribute within this class is also reset or cleared.
+     */
+    private static void retrieveAndDisplayTrace() {
+        traceValue = showTrace();
+        System.out.println("Trace Value is: ");
+        System.out.println(traceValue);
+        traceValue = "";
+        spinCount = 0;
+        log(null);
+    }
+
 }
