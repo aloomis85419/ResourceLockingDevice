@@ -91,17 +91,4 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker
         }
         return unlockStatus;
     }
-
-    // private static void toggleUnlockValue() {
-    //    if (unlockValue == 'T') {
-    //        unlockValue = 'F';
-    //    } else if (unlockValue == 'F') {
-    //        unlockValue = 'T';
-    //    }
-    // }
-    
-    // public static void main(String[]args)
-    // {
-    //    unlock(new Device(4,2));
-    // }
 }
