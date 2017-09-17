@@ -12,11 +12,22 @@
  */
 public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker
 {
-    private static final int MAX_SPIN_COUNT = 1000;
+    /** Maximum number of spins unlock algorithm is allowed to perform before aborting unlock method and returning false */
+	private static final int MAX_SPIN_COUNT = 1000;
+
+	/** Pattern used to return first two bits of Device utilizing peek method */
     private static final String PATTERN = "??--";
+
+	/** Pattern used to set bits in register if they are not equal to unlock value, default pattern is "TT--" */
     private static String pokePattern = "TT--";
+
+	/** Value bits are set to in order to unlock device, default value is 'T' */
     private static char unlockValue = 'T';
+
+	/** Counter for number of spins unlock algorithm has performed */
     private static int spinCount = 0;
+
+	/** String to catch return of showTrace method */
     private static String traceValue = "";
 
     /**
