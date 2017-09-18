@@ -5,9 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
-*  DeviceUnlocker test class. Tests different variations of how the bits could be set.	
-*  Checks if the device is unlocked in the case that all bits are the same, and false,
-*  in every other case.
+*  DeviceUnlocker test class. Tests various initial bit patterns. Each bit can be set
+*  to true or false. Checks if the device is unlocked when all bits in the pattern are
+*  set to either all true or all false. Also, tests to determine if maximum number of
+*  spins (or circular rotation of the bits) has been reached.
 *
 *  @author Team Locksmiths
 *  @author Vicky Lym, Erin Gurnett, Joe Medina, Jazil Pauda, Aaron Loomis
@@ -20,7 +21,9 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
    private boolean[] bitArray = new boolean[4];
    private String traceValue = "";
     
-   // Test case 1.1.1
+   /**
+    * Test case 1.1.1 using [true, true, true, true] to verify device is unlocked.
+    */
     @Test
     public void testUnlockedDevice1111() {
         bitArray[0] = true;
@@ -34,7 +37,9 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
     
-    // Test case 1.1.2
+    /**
+     * Test case 1.1.2 using [false, false, false, false] to verify device is unlocked.
+     */
     @Test
     public void testUnlockedDevice1121() {
         bitArray[0] = false;
@@ -48,7 +53,9 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
 
-   // Test case 1.2.1.1
+    /**
+     * Test case 1.2.1.1 using [true, true, true, false] to verify device is unlocked.
+     */
     @Test
     public void testAllButOneUnlocked1211() {
         bitArray[0] = true;
@@ -60,9 +67,11 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
 	    FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
         // testUnlocker.unlock(testDevice);
 	    assertThat(testUnlocker.unlock(testDevice), is(true));
-   }
+    }
     
-    // Test case 1.2.1.2
+    /**
+     * Test case 1.2.1.2 using [true, true, false, true] to verify device is unlocked.
+     */
     @Test
     public void testAllButOneUnlocked1212() {
         bitArray[0] = true;
@@ -76,7 +85,9 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
     
-    // Test case 1.2.1.3
+    /**
+     * Test case 1.2.1.3 using [true, false, true, true] to verify device is unlocked.
+     */
     @Test
     public void testAllButOneUnlocked1213() {
         bitArray[0] = true;
@@ -90,7 +101,9 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
     
-    // Test case 1.2.1.4
+    /**
+     * Test case 1.2.1.4 using [false, true, true, true] to verify device is unlocked.
+     */
     @Test
     public void testAllButOneUnlocked1214() {
         bitArray[0] = false;
@@ -104,7 +117,9 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
     
-    // Test case 1.3.1.1
+    /**
+     * Test case 1.3.1.1 using [true, false, true, false] to verify device is unlocked.
+     */
     @Test
     public void testAlternatingBits1311() {
         bitArray[0] = true;
@@ -118,7 +133,9 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
     
-    // Test case 1.3.1.2
+    /**
+     * Test case 1.3.1.2 using [false, true, false, true] to verify device is unlocked.
+     */
     @Test
     public void testAlternatingBits1312() {
         bitArray[0] = false;
@@ -132,7 +149,9 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
     
-    // Test case 1.3.2.1
+    /**
+     * Test case 1.3.2.1 using [true, false, false, true] to verify device is unlocked.
+     */
     @Test
     public void testAlternatingBits1321() {
         bitArray[0] = true;
@@ -146,7 +165,9 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
     
-    // Test case 1.3.2.2
+    /**
+     * Test case 1.3.2.2 using [false, true, true, false] to verify device is unlocked.
+     */
     @Test
     public void testAlternatingBits1322() {
         bitArray[0] = false;
@@ -161,7 +182,9 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
     }
 
     
-   // Test case 1.3.3.1
+    /**
+     * Test case 1.3.3.1 using [true, true, false, false] to verify device is unlocked.
+     */
     @Test
     public void testTwoTrueTwoFalse1331() {
         bitArray[0] = true;
@@ -175,7 +198,9 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
     
-    // Test case 1.3.3.2
+    /**
+     * Test case 1.3.3.2 using [false, false, true, true] to verify device is unlocked.
+     */
     @Test
     public void testTwoTrueTwoFalse1332() {
         bitArray[0] = false;
@@ -189,9 +214,14 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
     
-    // Test case 1.4 - Testing when Spin Count Maximum is reached
+    /**
+     * Test case 1.4 using [false, true, false, true] to test if spin count maximum
+     * is reached.  This test will require a change to the FourBitTwoDisclosureDeviceUnlocker.java
+     * to decrease the MAX_SPIN_COUNT to force the message to indicate maximum reached.  Also,
+     * the assert statement will need to be changed to be is(false);
+     */
     @Test
-    public void testTwoTrueTwoFalse14() {
+    public void testSpinCountMaximumReached() {
         bitArray[0] = false;
         bitArray[1] = true;
         bitArray[2] = false;
@@ -202,5 +232,4 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         // testUnlocker.unlock(testDevice);
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
-
 }
