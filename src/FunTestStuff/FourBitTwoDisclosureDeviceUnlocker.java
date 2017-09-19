@@ -104,7 +104,7 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker
      */
     private static void checkSpinCount() {
         if (spinCount >= MAX_SPIN_COUNT) {
-            log("Maximum number of Spins reached, " + spinCount);
+            //log("Maximum number of Spins reached, " + spinCount);
             log("Program has halted without an unlocked Device, " + unlocked);
         } else {
             log("Device is Unlocked.");
@@ -120,9 +120,9 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker
      * spinCount attribute within this class is also reset or cleared.
      */
     private static void retrieveAndDisplayTrace() {
-        traceValue = showTrace();
-        System.out.println("Trace Value is: ");
-        System.out.println(traceValue);
+        //traceValue = showTrace();
+        //System.out.println("Trace Value is: ");
+        //System.out.println(traceValue);
         traceValue = "";
         spinCount = 0;
         log(null);

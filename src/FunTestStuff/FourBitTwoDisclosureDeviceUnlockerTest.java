@@ -36,7 +36,37 @@ public class FourBitTwoDisclosureDeviceUnlockerTest {
         // testUnlocker.unlock(testDevice);
         assertThat(testUnlocker.unlock(testDevice), is(true));
     }
-   
+
+    @Test
+    public void randomTest()
+    {
+	System.out.println("Random Test");
+        bitArray[0] = true;
+	bitArray[1] = false;
+	bitArray[2] = false;
+	bitArray[3] = false;
+	int timesUnlocked = 0, timesNotUnlocked = 0;	
+
+	for(int i = 0; i < 1000000; i++)
+	{
+		Device testDevice = new Device(bitArray, 2);
+		FourBitTwoDisclosureDeviceUnlocker testUnlocker = new FourBitTwoDisclosureDeviceUnlocker();
+		if(testUnlocker.unlock(testDevice) == true)
+		{
+			timesUnlocked++;
+			System.out.println(i + ": Device unlocked");
+		}
+		else if(testUnlocker.unlock(testDevice) == false)
+		{
+			timesNotUnlocked++;
+			System.out.println(i + ": Device not unlocked");
+		}
+	}
+	
+	System.out.println("Times Unlocked: " + timesUnlocked);
+	System.out.println("Times couldn't unlock: " + timesNotUnlocked);
+    }
+    
     /**
      * Test case 1.1.2 using [false, false, false, false] to verify device is unlocked.
      */
